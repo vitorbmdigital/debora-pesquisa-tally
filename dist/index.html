@@ -10,44 +10,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --navy: #101637;
-      --ink: #17253d;
-      --cream: #f5f5ef;
-      --coral: #d9553b;
-      --line: rgba(16, 22, 55, .13);
+      --navy: #10163d;
+      --ink: #19223d;
+      --cream: #f4f7ef;
+      --coral: #df6247;
+      --muted: #697189;
+      --line: rgba(16, 22, 61, .14);
     }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--cream); color: var(--ink); font-family: Archivo, system-ui, sans-serif; }
-    .shell { min-height: 100vh; overflow: hidden; }
-    .hero { position: relative; min-height: 480px; display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(380px, .96fr); align-items: stretch; background: var(--navy); }
-    .hero-copy { position: relative; z-index: 1; padding: 72px clamp(28px, 7vw, 112px) 76px; display: flex; flex-direction: column; justify-content: center; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 56px; color: #fff; text-decoration: none; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; font-size: 13px; }
-    .brand-mark { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.8); display: grid; place-items: center; font-size: 12px; letter-spacing: 0; }
-    .eyebrow { color: #f1a18e; text-transform: uppercase; font-size: 12px; letter-spacing: .16em; font-weight: 700; margin: 0 0 18px; }
-    h1 { color: #fff; font-family: "DM Serif Display", Georgia, serif; font-size: clamp(44px, 5vw, 78px); font-weight: 400; line-height: .98; max-width: 700px; margin: 0 0 24px; }
-    .lead { max-width: 580px; color: rgba(255,255,255,.78); font-size: clamp(17px, 1.7vw, 21px); line-height: 1.55; margin: 0; }
-    .hero-photo { min-height: 480px; position: relative; background: #9b969d; }
+    .shell { min-height: 100vh; overflow: hidden; background: radial-gradient(circle at 12% 70%, rgba(255,255,255,.7), transparent 32%), var(--cream); }
+    .hero { position: relative; min-height: min(760px, 84vh); display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(420px, .98fr); align-items: stretch; background: var(--navy); }
+    .hero-copy { position: relative; z-index: 1; padding: 86px clamp(28px, 8vw, 128px) 100px; display: flex; flex-direction: column; justify-content: center; }
+    .brand { display: inline-flex; align-items: center; gap: 13px; margin-bottom: 72px; color: #fff; text-decoration: none; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; font-size: 12px; }
+    .brand-mark { width: 48px; height: 48px; border-radius: 14px; object-fit: cover; background: var(--cream); box-shadow: 0 10px 30px rgba(0,0,0,.14); }
+    .brand-copy { display: flex; flex-direction: column; gap: 3px; }
+    .brand-name { letter-spacing: .08em; }
+    .brand-role { color: rgba(255,255,255,.58); font-size: 10px; letter-spacing: .16em; }
+    .eyebrow { color: #f1a18e; text-transform: uppercase; font-size: 12px; letter-spacing: .18em; font-weight: 700; margin: 0 0 20px; }
+    h1 { color: #fff; font-family: "DM Serif Display", Georgia, serif; font-size: clamp(48px, 5.4vw, 82px); font-weight: 400; letter-spacing: -.025em; line-height: .94; max-width: 650px; margin: 0 0 28px; }
+    .lead { max-width: 570px; color: rgba(255,255,255,.78); font-size: clamp(17px, 1.7vw, 21px); line-height: 1.6; margin: 0; }
+    .hero-proof { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; color: rgba(255,255,255,.65); font-size: 13px; }
+    .hero-proof span { padding: 9px 13px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; }
+    .hero-photo { min-height: min(760px, 84vh); position: relative; overflow: hidden; background: #9b969d; }
     .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--navy) 0%, transparent 24%), linear-gradient(0deg, rgba(16,22,55,.24), transparent 36%); }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 72% 25%; display: block; }
-    .form-wrap { position: relative; margin: -54px auto 0; width: min(1080px, calc(100% - 32px)); z-index: 2; }
-    .form-card { background: #fff; border: 1px solid var(--line); border-radius: 26px; box-shadow: 0 24px 70px rgba(16,22,55,.12); padding: 18px; }
-    .form-top { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px 18px; gap: 16px; }
-    .form-title { margin: 0; font-size: 15px; font-weight: 700; color: var(--navy); }
-    .form-note { margin: 0; color: #667085; font-size: 13px; }
-    .status { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 12px; color: #667085; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 68% 24%; display: block; transform: scale(1.035); }
+    .form-wrap { position: relative; margin: -74px auto 0; width: min(1120px, calc(100% - 32px)); z-index: 2; }
+    .form-card { background: rgba(255,255,255,.93); border: 1px solid rgba(255,255,255,.85); border-radius: 32px; box-shadow: 0 30px 90px rgba(16,22,61,.16); padding: 22px; backdrop-filter: blur(18px); }
+    .form-top { display: flex; align-items: flex-end; justify-content: space-between; padding: 8px 14px 20px; gap: 16px; }
+    .form-kicker { margin: 0 0 7px; color: var(--coral); text-transform: uppercase; letter-spacing: .16em; font-size: 10px; font-weight: 700; }
+    .form-title { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -.02em; color: var(--navy); }
+    .form-note { margin: 5px 0 0; color: var(--muted); font-size: 14px; }
+    .status { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; padding: 10px 13px; border-radius: 999px; background: rgba(223,98,71,.08); font-size: 12px; color: var(--muted); }
     .status::before { content: ""; width: 8px; height: 8px; background: var(--coral); border-radius: 50%; }
     iframe { width: 100%; min-height: 860px; border: 0; border-radius: 18px; background: #fafaf7; }
-    footer { padding: 48px 24px 62px; text-align: center; color: #667085; font-size: 13px; }
+    footer { padding: 54px 24px 70px; text-align: center; color: var(--muted); font-size: 13px; }
     @media (max-width: 760px) {
       .hero { display: flex; flex-direction: column; }
-      .hero-copy { padding: 36px 24px 44px; min-height: 420px; }
-      .brand { margin-bottom: 46px; }
-      .hero-photo { min-height: 330px; order: -1; }
+      .hero-copy { padding: 44px 24px 56px; min-height: 500px; }
+      .brand { margin-bottom: 52px; }
+      .hero-photo { min-height: 360px; }
       .hero-photo::after { background: linear-gradient(0deg, rgba(16,22,55,.28), transparent 50%); }
       .hero-photo img { object-position: 68% 22%; }
-      .form-wrap { width: calc(100% - 20px); margin-top: -26px; }
-      .form-card { padding: 8px; border-radius: 20px; }
-      .form-top { padding: 12px 10px 16px; align-items: flex-start; flex-direction: column; }
+      .hero-proof { margin-top: 28px; }
+      h1 { font-size: clamp(48px, 15vw, 68px); }
+      .form-wrap { width: calc(100% - 20px); margin-top: -30px; }
+      .form-card { padding: 8px; border-radius: 22px; }
+      .form-top { padding: 15px 10px 18px; align-items: flex-start; flex-direction: column; }
       iframe { min-height: 900px; border-radius: 14px; }
     }
   </style>
@@ -57,18 +66,20 @@
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-copy">
         <a class="brand" href="https://dcvistos.com.br" target="_blank" rel="noreferrer">
-          <span class="brand-mark">DC</span><span>DC Vistos</span>
+          <img class="brand-mark" src="assets/debora-logo.png" alt="" />
+          <span class="brand-copy"><span class="brand-name">Débora Coelho</span><span class="brand-role">Assessora consular</span></span>
         </a>
         <p class="eyebrow">Sua opinião orienta os próximos passos</p>
         <h1 id="page-title">Quero conhecer você.</h1>
         <p class="lead">Responda algumas perguntas para me contar seus objetivos, desafios e o tipo de ajuda que realmente faria diferença para você.</p>
+        <div class="hero-proof"><span>Pesquisa confidencial</span><span>6–10 minutos</span></div>
       </div>
       <div class="hero-photo"><img src="assets/debora-optimized.jpg" alt="Débora Coelho" /></div>
     </section>
     <section class="form-wrap" aria-label="Pesquisa">
       <div class="form-card">
         <div class="form-top">
-          <div><p class="form-title">Pesquisa de interesse</p><p class="form-note">Leva aproximadamente 6 a 10 minutos.</p></div>
+          <div><p class="form-kicker">Sua opinião importa</p><p class="form-title">Pesquisa de interesse</p><p class="form-note">Leva aproximadamente 6 a 10 minutos.</p></div>
           <span class="status">Respostas confidenciais</span>
         </div>
         <iframe src="https://tally.so/embed/7XNW2z?alignLeft=1&hideTitle=1&transparentBackground=1" title="Pesquisa Débora Coelho"></iframe>
